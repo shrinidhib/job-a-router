@@ -13,6 +13,9 @@ import Contact from './pages/help/Contact'
 import { RootLayout } from './layouts/RootLayout'
 import HelpLayout from './layouts/HelpLayout'
 import NotFound from './pages/NotFound'
+import CareerLayout from './layouts/CareerLayout'
+import Careers, { careersLoader } from './pages/careers/Careers'
+import CareerDetails, { careerDetailsLoader } from './pages/careers/CareerDetails'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +28,18 @@ const router=createBrowserRouter(
           </Route>
           {/* for routes that dont match any of the above given ones */}
           {/* custom 404 */}
+          <Route path="careers" element={<CareerLayout/>}>
+            <Route 
+            index 
+            element={<Careers/>}
+            loader={careersLoader}/>
+            <Route 
+              path=":id"
+              element={<CareerDetails/>}
+              loader={careerDetailsLoader}
+              />
+          </Route>
+
           <Route path="*" element={<NotFound/>}/>
     </Route>
 
