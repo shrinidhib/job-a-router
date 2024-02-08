@@ -2,10 +2,10 @@ This is a project to learn/practice react-routers. Check out https://www.youtube
 
 This has been created by using his playlist as reference!
 
-SET UP
+**SET UP**
 
 npm install
 
-RUN
+**RUN**
 
 npm run start
