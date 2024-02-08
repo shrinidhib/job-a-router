@@ -8,7 +8,7 @@ import {
 import Home from './pages/Home'
 import About from './pages/About'
 import Faq from './pages/help/Faq'
-import Contact from './pages/help/Contact'
+import Contact, { contactAction } from './pages/help/Contact'
 
 import { RootLayout } from './layouts/RootLayout'
 import HelpLayout from './layouts/HelpLayout'
@@ -16,6 +16,7 @@ import NotFound from './pages/NotFound'
 import CareerLayout from './layouts/CareerLayout'
 import Careers, { careersLoader } from './pages/careers/Careers'
 import CareerDetails, { careerDetailsLoader } from './pages/careers/CareerDetails'
+import CareersError from './pages/careers/CareersError'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -24,11 +25,11 @@ const router=createBrowserRouter(
           <Route path="about" element={<About/>}/>
           <Route path="help" element={<HelpLayout/>}>
             <Route path="faq" element={<Faq/>}/>
-            <Route path="contact" element={<Contact/>}/>
+            <Route path="contact" element={<Contact/>} action={contactAction}/>
           </Route>
           {/* for routes that dont match any of the above given ones */}
           {/* custom 404 */}
-          <Route path="careers" element={<CareerLayout/>}>
+          <Route path="careers" element={<CareerLayout/>} errorElement={<CareersError/>}>
             <Route 
             index 
             element={<Careers/>}
